@@ -68,11 +68,11 @@ export default function HomePage() {
         style={{
           backgroundColor: "var(--surface)",
           borderBottom: "1px solid var(--border)",
-          padding: "5rem 1rem 4rem",
+          padding: "clamp(2.5rem, 6vw, 4.5rem) 1rem clamp(2rem, 5vw, 3.5rem)",
         }}
       >
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left: heading */}
             <div>
               <p
@@ -89,7 +89,7 @@ export default function HomePage() {
               </p>
               <h1
                 style={{
-                  fontSize: "clamp(2rem, 5vw, 3rem)",
+                  fontSize: "clamp(1.875rem, 4.5vw, 2.75rem)",
                   fontWeight: 700,
                   lineHeight: 1.15,
                   color: "var(--text-primary)",
@@ -103,44 +103,25 @@ export default function HomePage() {
               </h1>
               <p
                 style={{
-                  fontSize: "1.0625rem",
+                  fontSize: "1rem",
                   color: "var(--text-secondary)",
                   lineHeight: 1.75,
-                  marginBottom: "2rem",
+                  marginBottom: "1.75rem",
                   maxWidth: "480px",
                 }}
               >
                 Website pembelajaran matematika untuk siswa SMK Kelas XII. Pelajari tiga materi utama dengan penjelasan lengkap, rumus, contoh soal, dan visualisasi interaktif.
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/materi"
-                  style={{
-                    display: "inline-block",
-                    backgroundColor: "var(--accent)",
-                    color: "#fff",
-                    fontWeight: 600,
-                    fontSize: "0.9375rem",
-                    padding: "0.75rem 1.5rem",
-                    borderRadius: "6px",
-                    textDecoration: "none",
-                  }}
+                  className="flex items-center justify-center min-h-[44px] bg-[var(--accent)] text-white font-semibold text-[0.9375rem] px-6 py-3 rounded-md text-center hover:opacity-90 transition-opacity"
                 >
                   Mulai Belajar
                 </Link>
                 <Link
                   href="/latihan"
-                  style={{
-                    display: "inline-block",
-                    backgroundColor: "transparent",
-                    color: "var(--text-primary)",
-                    fontWeight: 600,
-                    fontSize: "0.9375rem",
-                    padding: "0.75rem 1.5rem",
-                    borderRadius: "6px",
-                    textDecoration: "none",
-                    border: "1px solid var(--border)",
-                  }}
+                  className="flex items-center justify-center min-h-[44px] bg-transparent text-[var(--text-primary)] font-semibold text-[0.9375rem] px-6 py-3 rounded-md text-center border border-[var(--border)] hover:bg-[var(--surface)] transition-colors"
                 >
                   Latihan Soal
                 </Link>
@@ -272,16 +253,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/latihan"
-            style={{
-              display: "inline-block",
-              backgroundColor: "var(--accent)",
-              color: "#fff",
-              fontWeight: 600,
-              fontSize: "0.9375rem",
-              padding: "0.75rem 1.75rem",
-              borderRadius: "6px",
-              textDecoration: "none",
-            }}
+            className="inline-flex items-center justify-center min-h-[44px] bg-[var(--accent)] text-white font-semibold text-[0.9375rem] px-7 py-3 rounded-md hover:opacity-90 transition-opacity"
           >
             Kerjakan Latihan Soal
           </Link>

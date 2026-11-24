@@ -127,15 +127,20 @@ const valueStyle: React.CSSProperties = {
 };
 
 const toggleBtnStyle = (active: boolean): React.CSSProperties => ({
-  padding: "0.3rem 0.9rem",
+  minHeight: "44px",
+  minWidth: "44px",
+  padding: "0.4rem 1rem",
   borderRadius: "6px",
   border: `1.5px solid ${active ? "var(--accent)" : "var(--border)"}`,
   backgroundColor: active ? "var(--accent)" : "transparent",
   color: active ? "#fff" : "var(--text-secondary)",
   fontWeight: 600,
-  fontSize: "0.8125rem",
+  fontSize: "0.875rem",
   cursor: "pointer",
   transition: "all 0.15s ease",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 export default function TransformasiChart() {
@@ -192,9 +197,8 @@ export default function TransformasiChart() {
   if (!mounted) {
     return (
       <div
+        className="h-64 sm:h-80 w-full"
         style={{
-          width: "100%",
-          height: 350,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -210,22 +214,32 @@ export default function TransformasiChart() {
     );
   }
 
+  function handleReset() {
+    setBaseFunc("x2");
+    setK(0);
+    setH(0);
+    setA(1);
+    setReflectX(false);
+    setReflectY(false);
+  }
+
   return (
     <div
       style={{
         backgroundColor: "var(--surface)",
         border: "1px solid var(--border)",
         borderRadius: "10px",
-        padding: "1.5rem",
-        margin: "1.5rem 0",
+        padding: "1rem 1.25rem",
+        margin: "1.25rem 0",
       }}
     >
       {/* Chart */}
-      <ResponsiveContainer width="100%" height={350}>
-        <ComposedChart
-          data={data}
-          margin={{ top: 10, right: 20, bottom: 20, left: 10 }}
-        >
+      <div className="h-64 sm:h-80 w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <ComposedChart
+            data={data}
+            margin={{ top: 10, right: 15, bottom: 20, left: -10 }}
+          >
           <CartesianGrid
             strokeDasharray="3 3"
             stroke="var(--border)"
@@ -302,6 +316,7 @@ export default function TransformasiChart() {
           />
         </ComposedChart>
       </ResponsiveContainer>
+    </div>
 
       {/* Formula display */}
       <div
@@ -324,8 +339,8 @@ export default function TransformasiChart() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "0.5rem 2rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
+          gap: "1rem 1.5rem",
         }}
       >
         {/* Base function */}

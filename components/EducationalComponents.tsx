@@ -13,13 +13,15 @@ export function FormulaBlock({
 }) {
   return (
     <div
+      className="scroll-touch"
       style={{
         backgroundColor: "var(--accent-light)",
         borderLeft: "3px solid var(--accent)",
         borderRadius: "0 8px 8px 0",
-        padding: "1.25rem 1.5rem",
-        margin: "1.5rem 0",
+        padding: "1rem 1.25rem",
+        margin: "1.25rem 0",
         overflowX: "auto",
+        WebkitOverflowScrolling: "touch",
       }}
       role="region"
       aria-label={title ?? "Formula matematika"}
@@ -57,8 +59,8 @@ export function DefinitionBlock({
         backgroundColor: "var(--accent-light)",
         borderLeft: "3px solid var(--accent)",
         borderRadius: "0 8px 8px 0",
-        padding: "1.25rem 1.5rem",
-        margin: "1.5rem 0",
+        padding: "1rem 1.25rem",
+        margin: "1.25rem 0",
       }}
     >
       <p
@@ -98,7 +100,7 @@ export function NoteBlock({ children }: { children: React.ReactNode }) {
         backgroundColor: "var(--amber-light)",
         borderLeft: "3px solid var(--amber)",
         borderRadius: "0 8px 8px 0",
-        padding: "1rem 1.5rem",
+        padding: "1rem 1.25rem",
         margin: "1.25rem 0",
       }}
       role="note"
@@ -147,18 +149,16 @@ export function WorkedExample({
         border: "1px solid var(--border)",
         borderRadius: "8px",
         overflow: "hidden",
-        margin: "2rem 0",
+        margin: "1.75rem 0",
       }}
       aria-label={`Contoh soal ${number}`}
     >
       {/* Header */}
       <div
+        className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"
         style={{
           backgroundColor: "var(--text-primary)",
-          padding: "0.875rem 1.5rem",
-          display: "flex",
-          alignItems: "center",
-          gap: "0.75rem",
+          padding: "0.875rem 1.25rem",
         }}
       >
         <span
@@ -167,19 +167,21 @@ export function WorkedExample({
             color: "#fff",
             fontSize: "0.8125rem",
             fontWeight: 700,
-            padding: "0.2rem 0.6rem",
+            padding: "0.25rem 0.6rem",
             borderRadius: "4px",
+            alignSelf: "flex-start",
+            flexShrink: 0,
           }}
         >
           Contoh {number}
         </span>
-        <span style={{ color: "#fff", fontSize: "0.9375rem", flex: 1 }}>
+        <span style={{ color: "#fff", fontSize: "0.9375rem", flex: 1, lineHeight: 1.5 }}>
           {soal}
         </span>
       </div>
 
       {/* Steps */}
-      <div style={{ padding: "1.5rem" }}>
+      <div style={{ padding: "1.25rem" }}>
         {steps.map((step, i) => (
           <div key={i} style={{ marginBottom: "1.25rem" }}>
             <p
@@ -206,7 +208,7 @@ export function WorkedExample({
             backgroundColor: "var(--accent-light)",
             borderLeft: "3px solid var(--accent)",
             borderRadius: "0 6px 6px 0",
-            padding: "1rem 1.25rem",
+            padding: "0.875rem 1rem",
             marginTop: "1rem",
           }}
         >
@@ -233,7 +235,7 @@ export function WorkedExample({
               backgroundColor: "var(--amber-light)",
               borderLeft: "3px solid var(--amber)",
               borderRadius: "0 6px 6px 0",
-              padding: "0.875rem 1.25rem",
+              padding: "0.875rem 1rem",
               marginTop: "0.75rem",
             }}
           >
@@ -271,7 +273,7 @@ export function SectionHeading({
     <h2
       id={id}
       style={{
-        fontSize: "1.375rem",
+        fontSize: "clamp(1.2rem, 3vw, 1.45rem)",
         fontWeight: 700,
         color: "var(--text-primary)",
         marginTop: "2.5rem",
@@ -279,7 +281,7 @@ export function SectionHeading({
         paddingTop: "0.5rem",
         borderBottom: "2px solid var(--border)",
         paddingBottom: "0.5rem",
-        scrollMarginTop: "5rem",
+        scrollMarginTop: "5.5rem",
       }}
     >
       {children}
@@ -299,12 +301,12 @@ export function SubHeading({
     <h3
       id={id}
       style={{
-        fontSize: "1.0625rem",
+        fontSize: "clamp(1rem, 2.5vw, 1.125rem)",
         fontWeight: 600,
         color: "var(--text-primary)",
         marginTop: "1.75rem",
         marginBottom: "0.5rem",
-        scrollMarginTop: "5rem",
+        scrollMarginTop: "5.5rem",
       }}
     >
       {children}

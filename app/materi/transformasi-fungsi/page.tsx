@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TransformasiChart from "@/components/TransformasiChart";
+import MobileLessonNav from "@/components/MobileLessonNav";
 import {
   DefinitionBlock,
   FormulaBlock,
@@ -76,6 +77,11 @@ export default function TransformasiFungsiPage() {
 
         {/* Center column: Main lesson content */}
         <article className="flex-1 min-w-0 prose-content">
+          <MobileLessonNav
+            currentSubject="02. Transformasi Fungsi"
+            subjects={subjectsNav}
+            tocItems={tocItems}
+          />
           <header style={{ marginBottom: "2rem" }}>
             <span
               style={{
@@ -519,38 +525,16 @@ export default function TransformasiFungsiPage() {
           </div>
 
           {/* Bottom navigation */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: "3rem",
-              paddingTop: "1.5rem",
-              borderTop: "1px solid var(--border)",
-            }}
-          >
+          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between mt-12 pt-6 border-t border-[var(--border)]">
             <Link
               href="/materi/statistika-regresi"
-              style={{
-                color: "var(--text-secondary)",
-                textDecoration: "none",
-                fontSize: "0.875rem",
-                fontWeight: 500,
-              }}
+              className="flex items-center justify-center min-h-[44px] text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               ← Materi Sebelumnya: Statistika Regresi
             </Link>
             <Link
               href="/materi/kaidah-pencacahan-peluang"
-              style={{
-                backgroundColor: "var(--accent)",
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "0.875rem",
-                fontWeight: 600,
-                padding: "0.6rem 1.25rem",
-                borderRadius: "6px",
-              }}
+              className="flex items-center justify-center min-h-[44px] bg-[var(--accent)] text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-center"
             >
               Materi Berikutnya: Kaidah Pencacahan & Peluang →
             </Link>

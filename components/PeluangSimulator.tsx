@@ -129,7 +129,7 @@ export default function PeluangSimulator() {
         ))}
       </div>
 
-      <div style={{ padding: "1.5rem" }}>
+      <div className="p-4 sm:p-6">
         {/* Current result display */}
         <div
           style={{
@@ -178,55 +178,53 @@ export default function PeluangSimulator() {
         </div>
 
         {/* Controls */}
-        <div
-          style={{
-            display: "flex",
-            gap: "0.75rem",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            marginBottom: "1.5rem",
-          }}
-        >
+        <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-md mx-auto mb-6">
           <button
+            type="button"
             onClick={() => doThrow(1)}
             style={{
-              padding: "0.6rem 1.25rem",
+              padding: "0.6rem 0.5rem",
+              minHeight: "44px",
               backgroundColor: "var(--accent)",
               color: "#fff",
               border: "none",
               borderRadius: "6px",
               fontWeight: 600,
-              fontSize: "0.9375rem",
+              fontSize: "0.875rem",
               cursor: "pointer",
             }}
           >
             Lempar 1x
           </button>
           <button
+            type="button"
             onClick={() => doThrow(10)}
             style={{
-              padding: "0.6rem 1.25rem",
+              padding: "0.6rem 0.5rem",
+              minHeight: "44px",
               backgroundColor: "var(--accent)",
               color: "#fff",
               border: "none",
               borderRadius: "6px",
               fontWeight: 600,
-              fontSize: "0.9375rem",
+              fontSize: "0.875rem",
               cursor: "pointer",
             }}
           >
             Lempar 10x
           </button>
           <button
+            type="button"
             onClick={doReset}
             style={{
-              padding: "0.6rem 1.25rem",
+              padding: "0.6rem 0.5rem",
+              minHeight: "44px",
               backgroundColor: "transparent",
               color: "var(--text-secondary)",
               border: "1px solid var(--border)",
               borderRadius: "6px",
               fontWeight: 600,
-              fontSize: "0.9375rem",
+              fontSize: "0.875rem",
               cursor: "pointer",
             }}
           >
@@ -264,10 +262,12 @@ export default function PeluangSimulator() {
               Tabel Frekuensi : Total lemparan: {total}
             </p>
             <div
+              className="scroll-touch"
               style={{
                 border: "1px solid var(--border)",
                 borderRadius: "6px",
-                overflow: "hidden",
+                overflowX: "auto",
+                WebkitOverflowScrolling: "touch",
                 marginBottom: "1.25rem",
               }}
             >

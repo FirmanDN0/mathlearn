@@ -299,7 +299,7 @@ export default function QuizClient() {
           style={{
             display: "grid",
             gap: 16,
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
           }}
         >
           {CATEGORIES.map((cat) => (
@@ -312,7 +312,8 @@ export default function QuizClient() {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: 8,
-                padding: "24px 20px",
+                padding: "20px 18px",
+                minHeight: 52,
                 background: "#ffffff",
                 border: "2px solid #e5e7eb",
                 borderRadius: 14,
@@ -605,11 +606,12 @@ export default function QuizClient() {
           {scoreLabel}
         </div>
 
-        <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
           <button
             onClick={handleRetry}
             style={{
-              padding: "10px 24px",
+              padding: "12px 24px",
+              minHeight: 44,
               background: "#4f46e5",
               color: "#ffffff",
               border: "none",
@@ -624,7 +626,8 @@ export default function QuizClient() {
           <button
             onClick={handleChangeCategory}
             style={{
-              padding: "10px 24px",
+              padding: "12px 24px",
+              minHeight: 44,
               background: "#ffffff",
               color: "#4f46e5",
               border: "2px solid #4f46e5",
@@ -749,18 +752,12 @@ export default function QuizClient() {
       </div>
 
       {/* Bottom action */}
-      <div
-        style={{
-          display: "flex",
-          gap: 12,
-          justifyContent: "center",
-          marginTop: 32,
-        }}
-      >
+      <div className="flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center mt-8">
         <button
           onClick={handleRetry}
           style={{
-            padding: "10px 24px",
+            padding: "12px 24px",
+            minHeight: 44,
             background: "#4f46e5",
             color: "#ffffff",
             border: "none",
@@ -775,7 +772,8 @@ export default function QuizClient() {
         <button
           onClick={handleChangeCategory}
           style={{
-            padding: "10px 24px",
+            padding: "12px 24px",
+            minHeight: 44,
             background: "#ffffff",
             color: "#4f46e5",
             border: "2px solid #4f46e5",

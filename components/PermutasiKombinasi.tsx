@@ -99,13 +99,13 @@ export default function PermutasiKombinasi() {
       </div>
 
       {/* Inputs */}
-      <div style={{ padding: "1.5rem" }}>
+      <div className="p-4 sm:p-6">
         <div
           style={{
             display: "flex",
             gap: "1rem",
             flexWrap: "wrap",
-            marginBottom: "1.5rem",
+            marginBottom: "1rem",
           }}
         >
           <div style={{ flex: "1 1 140px" }}>
@@ -132,12 +132,13 @@ export default function PermutasiKombinasi() {
               placeholder="0–20"
               style={{
                 width: "100%",
+                height: "44px",
                 padding: "0.5rem 0.75rem",
                 border: "1px solid var(--border)",
                 borderRadius: "6px",
                 fontSize: "1rem",
                 color: "var(--text-primary)",
-                backgroundColor: "var(--bg)",
+                backgroundColor: "var(--surface)",
                 outline: "none",
               }}
             />
@@ -167,16 +168,51 @@ export default function PermutasiKombinasi() {
               placeholder="0–n"
               style={{
                 width: "100%",
+                height: "44px",
                 padding: "0.5rem 0.75rem",
                 border: "1px solid var(--border)",
                 borderRadius: "6px",
                 fontSize: "1rem",
                 color: "var(--text-primary)",
-                backgroundColor: "var(--bg)",
+                backgroundColor: "var(--surface)",
                 outline: "none",
               }}
             />
           </div>
+        </div>
+
+        {/* Quick presets for mobile touch */}
+        <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+          <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 600 }}>Contoh Nilai:</span>
+          {[
+            { n: "5", r: "2" },
+            { n: "8", r: "3" },
+            { n: "10", r: "4" },
+            { n: "6", r: "6" },
+          ].map((preset) => (
+            <button
+              key={`${preset.n}-${preset.r}`}
+              type="button"
+              onClick={() => {
+                setNVal(preset.n);
+                setRVal(preset.r);
+              }}
+              style={{
+                padding: "0.25rem 0.6rem",
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                borderRadius: "4px",
+                border: "1px solid var(--border)",
+                backgroundColor: "var(--bg)",
+                color: "var(--text-secondary)",
+                cursor: "pointer",
+                minHeight: "32px",
+              }}
+              className="hover:border-indigo-400 hover:text-indigo-600 active:bg-indigo-50"
+            >
+              n={preset.n}, r={preset.r}
+            </button>
+          ))}
         </div>
 
         {/* Error state */}
@@ -214,7 +250,7 @@ export default function PermutasiKombinasi() {
 
         {/* Results */}
         {valid && pResult !== null && cResult !== null && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Permutasi result */}
             <div
               style={{

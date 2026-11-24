@@ -106,9 +106,8 @@ export default function RegresiChart() {
   if (!mounted) {
     return (
       <div
+        className="h-64 sm:h-80 w-full"
         style={{
-          width: "100%",
-          height: 320,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -127,9 +126,9 @@ export default function RegresiChart() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
       {/* Chart */}
-      <div style={{ width: "100%", height: 320 }}>
+      <div className="h-64 sm:h-80 w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart margin={{ top: 10, right: 20, left: 0, bottom: 20 }}>
+          <ComposedChart margin={{ top: 10, right: 15, left: -10, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
             <XAxis
               dataKey="x"
@@ -140,9 +139,9 @@ export default function RegresiChart() {
                 value: "Jam Belajar (X)",
                 position: "insideBottom",
                 offset: -10,
-                style: { fontSize: "0.8125rem", fill: "var(--text-secondary)" },
+                style: { fontSize: "0.75rem", fill: "var(--text-secondary)" },
               }}
-              tick={{ fontSize: 12, fill: "var(--text-secondary)" }}
+              tick={{ fontSize: 11, fill: "var(--text-secondary)" }}
             />
             <YAxis
               dataKey="y"
@@ -152,10 +151,10 @@ export default function RegresiChart() {
                 value: "Nilai Ujian (Y)",
                 angle: -90,
                 position: "insideLeft",
-                offset: 10,
-                style: { fontSize: "0.8125rem", fill: "var(--text-secondary)" },
+                offset: 15,
+                style: { fontSize: "0.75rem", fill: "var(--text-secondary)" },
               }}
-              tick={{ fontSize: 12, fill: "var(--text-secondary)" }}
+              tick={{ fontSize: 11, fill: "var(--text-secondary)" }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend
@@ -195,6 +194,7 @@ export default function RegresiChart() {
           padding: "0.75rem 1rem",
           fontSize: "0.9375rem",
           color: "var(--text-primary)",
+          overflowX: "auto",
         }}
       >
         Persamaan regresi:{" "}
@@ -224,9 +224,9 @@ export default function RegresiChart() {
         >
           Prediksi Nilai Ujian
         </label>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
+        <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <span style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
+            <span style={{ fontSize: "0.875rem", color: "var(--text-secondary)", whiteSpace: "nowrap" }}>
               Jam belajar (X):
             </span>
             <input
@@ -238,13 +238,14 @@ export default function RegresiChart() {
               value={inputX}
               onChange={(e) => setInputX(e.target.value)}
               style={{
-                width: "80px",
+                width: "90px",
+                height: "44px",
                 padding: "0.375rem 0.5rem",
                 border: "1px solid var(--border)",
                 borderRadius: "6px",
-                fontSize: "0.9375rem",
+                fontSize: "1rem",
                 color: "var(--text-primary)",
-                backgroundColor: "var(--background)",
+                backgroundColor: "var(--surface)",
                 outline: "none",
               }}
               aria-describedby="regresi-prediction"
@@ -257,7 +258,13 @@ export default function RegresiChart() {
             step={0.5}
             value={xValid ? xVal : 5}
             onChange={(e) => setInputX(e.target.value)}
-            style={{ flex: 1, minWidth: "120px", accentColor: "var(--accent)" }}
+            style={{
+              flex: 1,
+              height: "44px",
+              minWidth: "120px",
+              accentColor: "var(--accent)",
+              cursor: "pointer",
+            }}
             aria-label="Geser untuk memilih jam belajar"
           />
         </div>

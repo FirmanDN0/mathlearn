@@ -104,22 +104,13 @@ export default function MateriPage() {
             >
               <div className="flex flex-col md:flex-row">
                 {/* Number column */}
-                <div
-                  style={{
-                    backgroundColor: "var(--accent-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "2rem 2.5rem",
-                    flexShrink: 0,
-                  }}
-                >
+                <div className="bg-[var(--accent-light)] flex items-center justify-center p-3 md:p-8 md:flex-col shrink-0 border-b md:border-b-0 md:border-r border-[var(--border)]">
                   <span
                     style={{
-                      fontSize: "2.5rem",
+                      fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
                       fontWeight: 700,
                       color: "var(--accent)",
-                      opacity: 0.5,
+                      opacity: 0.6,
                       letterSpacing: "-0.04em",
                     }}
                   >
@@ -128,7 +119,7 @@ export default function MateriPage() {
                 </div>
 
                 {/* Content */}
-                <div style={{ padding: "1.75rem", flex: 1 }}>
+                <div className="p-4 sm:p-6 md:p-7 flex-1">
                   <h2
                     style={{
                       fontSize: "1.25rem",
@@ -186,18 +177,7 @@ export default function MateriPage() {
                       </div>
                       <Link
                         href={s.href}
-                        style={{
-                          display: "inline-block",
-                          backgroundColor: "var(--accent)",
-                          color: "#fff",
-                          fontWeight: 600,
-                          fontSize: "0.875rem",
-                          padding: "0.6rem 1.25rem",
-                          borderRadius: "6px",
-                          textDecoration: "none",
-                          marginTop: "auto",
-                          alignSelf: "flex-start",
-                        }}
+                        className="inline-flex items-center justify-center min-h-[44px] bg-[var(--accent)] text-white font-semibold text-sm px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity mt-auto self-start"
                       >
                         Pelajari Materi
                       </Link>
@@ -234,17 +214,7 @@ export default function MateriPage() {
           </div>
           <Link
             href="/latihan"
-            style={{
-              display: "inline-block",
-              backgroundColor: "var(--text-primary)",
-              color: "#fff",
-              fontWeight: 600,
-              fontSize: "0.875rem",
-              padding: "0.6rem 1.25rem",
-              borderRadius: "6px",
-              textDecoration: "none",
-              flexShrink: 0,
-            }}
+            className="inline-flex items-center justify-center min-h-[44px] bg-[var(--text-primary)] text-white font-semibold text-sm px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity shrink-0"
           >
             Latihan Soal
           </Link>
